@@ -9,7 +9,7 @@ const resetButton = document.getElementById("reset");
 
 message.innerText = "Choose a Source Tile";
 let row = 30;
-let col = 30;
+let col = 60;
 div.style.gridTemplateColumns = `repeat(${col},27px)`;
 div.style.gridTemplateRows = `repeat(${row},27px)`;
 
