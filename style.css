@@ -4,11 +4,12 @@ html{
     align-items: center;
     justify-content: center;
     background: black;
+    font-family: sans-serif;
 }
 
 #message{
     font-size: 2.5rem;
-    font-family: sans-serif;
+    
     display: flex;
     color: white;
     justify-content: center;
@@ -36,14 +37,27 @@ html{
 
 .center{
     display: flex;
-    padding: 15px;
+    
+    color: white;
+    align-items: center;
     justify-content: center;
+    font-size: 1.5rem;
 }
 
 #algo{
+    font-size: 1.5rem;
     margin-right: 10px;
 }
 
 #reset{
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#Maze{
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    
+    vertical-align: middle;
 }

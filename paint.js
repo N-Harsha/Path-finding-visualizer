@@ -1,10 +1,10 @@
-async function paint(i, j, color) {
+async function paint(i, j, color, speed) {
   i++;
   j++;
   let str = `r${i}c${j}`;
   const tile = document.getElementById(str);
   tile.style.background = color;
-  await sleep(20);
+  await sleep(speed);
 }
 
 function sleep(ms) {
