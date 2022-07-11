@@ -29,9 +29,9 @@ for (let i = 1; i <= row; i++) {
     newNode.id = str;
     newNode.addEventListener("click", () => {
       if (srcFlag === false) {
-        pickSrc(i, j);
+        if (arr[i - 1][j - 1] != 1) pickSrc(i, j);
       } else {
-        pickDest(i, j);
+        if (arr[i - 1][j - 1] != 1) pickDest(i, j);
       }
     });
     div.appendChild(newNode);
@@ -61,7 +61,7 @@ function pickDest(i, j) {
 
 async function fin() {
   if (algo.options[algo.selectedIndex].value === "dfs") {
-    if (!dfs(arr, vi, src[0], src[1], dest, row, col))
+    if (!(await dfs(arr, vi, src[0], src[1], dest, row, col)))
       message.innerText = "Unable to find a Path";
     else message.innerText = "Found a Path";
   } else {
@@ -101,7 +101,7 @@ async function mazify() {
     if (arr[x][y] == 0) {
       cnt++;
       arr[x][y] = 1;
-      await paint(x, y, "black", 2);
+      await paint(x, y, "black", 0);
     }
   }
 }

@@ -1,4 +1,4 @@
-async function paint(i, j, color, speed) {
+async function paint(i, j, color, speed = 30) {
   i++;
   j++;
   let str = `r${i}c${j}`;
