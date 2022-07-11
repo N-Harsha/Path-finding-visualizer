@@ -1,6 +1,7 @@
 import dfs from "/dfs.js  ";
 import paint from "/paint.js";
 import bfs1 from "/bfs.js";
+import Astar1 from "/Astar.js";
 
 const div = document.getElementById("tile-wrapper");
 const message = document.getElementById("message");
@@ -64,8 +65,12 @@ async function fin() {
     if (!(await dfs(arr, vi, src[0], src[1], dest, row, col)))
       message.innerText = "Unable to find a Path";
     else message.innerText = "Found a Path";
-  } else {
+  } else if (algo.options[algo.selectedIndex].value === "bfs") {
     if ((await bfs1(arr, vi, src[0], src[1], dest, row, col)) == false)
+      message.innerText = "Unable to find a Path";
+    else message.innerText = "Found a Path";
+  } else {
+    if ((await Astar1(arr, vi, src[0], src[1], dest, row, col)) == false)
       message.innerText = "Unable to find a Path";
     else message.innerText = "Found a Path";
   }
