@@ -21,7 +21,7 @@ async function bfs1(arr, vi, i, j, d, r, c) {
 async function path(vi, dest, i, j) {
   let x = dest[0];
   let y = dest[1];
-  while (!(x === i && y === j)) {
+  while (!(x === i && y === j) && vi[x][y] != false) {
     let pre = vi[x][y];
     x = pre.i;
     y = pre.j;

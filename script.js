@@ -52,7 +52,7 @@ function pickSrc(i, j) {
 function pickDest(i, j) {
   dest[0] = i - 1;
   dest[1] = j - 1;
-  message.innerText = "Final Path";
+  message.innerText = "Finding a Path...";
   let str = `r${i}c${j}`;
   const tile = document.getElementById(str);
   tile.style.background = "red";
@@ -63,9 +63,11 @@ async function fin() {
   if (algo.options[algo.selectedIndex].value === "dfs") {
     if (!dfs(arr, vi, src[0], src[1], dest, row, col))
       message.innerText = "Unable to find a Path";
+    else message.innerText = "Found a Path";
   } else {
     if ((await bfs1(arr, vi, src[0], src[1], dest, row, col)) == false)
       message.innerText = "Unable to find a Path";
+    else message.innerText = "Found a Path";
   }
 }
 

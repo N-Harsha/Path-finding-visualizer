@@ -33,6 +33,7 @@ html{
     width: fit-content;
     grid-template-columns: repeat(25,27px);
     grid-template-rows: repeat(25,27px);
+    border: 2px solid white;
 }
 
 .center{
