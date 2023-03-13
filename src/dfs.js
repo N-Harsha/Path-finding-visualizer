@@ -1,4 +1,4 @@
-import paint from "./src/paint.js";
+import paint from "/src/paint.js";
 
 let dest = [];
 let src = [];

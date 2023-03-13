@@ -1,7 +1,7 @@
-import dfs from "./src/dfs.js  ";
-import paint from "./src/paint.js";
-import bfs1 from "./src/bfs.js";
-import Astar1 from "./src/Astar.js";
+import dfs from "/src/dfs.js  ";
+import paint from "/src/paint.js";
+import bfs1 from "/src/bfs.js";
+import Astar1 from "/src/Astar.js";
 
 const div = document.getElementById("tile-wrapper");
 const message = document.getElementById("message");

@@ -1,5 +1,5 @@
-import paint from "./src/paint.js";
-import { PriorityQueue, Node } from "./src/PriorityQueue.js";
+import paint from "/src/paint.js";
+import { PriorityQueue, Node } from "/src/PriorityQueue.js";
 
 let dest = [];
 let row = 1;
