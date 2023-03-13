@@ -1,5 +1,5 @@
-import paint from "./src/paint.js";
-import { Queue, Node } from "./src/Queue.js";
+import paint from "./paint.js";
+import { Queue, Node } from "./Queue.js";
 
 let dest = [];
 let row = 1;
