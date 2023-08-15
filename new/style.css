@@ -1,0 +1,41 @@
+* {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  /* background-color: black; */
+}
+header {
+  height: 9vh;
+  width: 100%;
+  background-color: rgb(0, 163, 212);
+}
+#tile-wrapper {
+  display: grid;
+  height: 89vh;
+  width: 99%;
+  margin: 0px auto;
+  margin-top: 10px;
+}
+.tile {
+  height: 25px;
+  width: 25px;
+  background-color: rgba(158, 158, 158, 0.5);
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.maze {
+  border: none;
+  box-sizing: border-box;
+}
+
+.tile:hover {
+  background-color: rgb(158, 158, 158);
+}
+
+.rightBorder {
+  border-right: 4px solid #535353;
+}
+.bottomBorder {
+  border-bottom: 4px solid #535353;
+}
