@@ -1,4 +1,5 @@
 import { DIRECTIONS, MOBILITY } from "./constants.js";
+import { HTMLClassManager, generateTileID } from "./domUtils.js";
 import { CoOrdArray, EdgeMatrix, VisitedArrayType } from "./index.types";
 
 function getAvailableNodes(
@@ -39,20 +40,24 @@ function removeEdge(
   switch (DIRECTIONS[idx]) {
     case "LEFT":
       horizontalEdges[x][newY] = false;
+      HTMLClassManager(x, newY, ["rightBorder"], []);
       break;
     case "TOP":
       verticalEdges[newX][y] = false;
+      HTMLClassManager(newX, y, ["bottomBorder"], []);
       break;
     case "RIGHT":
       horizontalEdges[x][y] = false;
+      HTMLClassManager(x, y, ["rightBorder"], []);
       break;
     case "BOTTOM":
       verticalEdges[x][y] = false;
+      HTMLClassManager(x, y, ["bottomBorder"], []);
       break;
   }
 }
 
-export function mazify(
+async function mazify(
   visitedArray: VisitedArrayType,
   horizontalEdges: EdgeMatrix,
   verticalEdges: EdgeMatrix,
@@ -69,13 +74,17 @@ export function mazify(
     columns,
     visitedArray
   );
+
+  await HTMLClassManager(startX, startY, ["maze-pointer"], []);
+  await HTMLClassManager(startX, startY, [], ["maze-pointer", "maze-visited"]);
+
   while (availableNodes.length > 0) {
     const randIdx = Math.floor(Math.random() * availableNodes.length);
     const [newX, newY] = availableNodes[randIdx];
     // remove the edge between the current node and the new node.
     removeEdge(startX, startY, newX, newY, horizontalEdges, verticalEdges);
 
-    mazify(
+    await mazify(
       visitedArray,
       horizontalEdges,
       verticalEdges,
@@ -93,5 +102,78 @@ export function mazify(
       columns,
       visitedArray
     );
+  }
+}
+
+function clearArrays(
+  rows: number,
+  columns: number,
+  visitedArray: VisitedArrayType,
+  horizontalEdges: EdgeMatrix,
+  verticalEdges: EdgeMatrix
+) {
+  for (var i = 0; i < rows; i++) {
+    for (var j = 0; j < columns; j++) {
+      visitedArray[i][j] = false;
+      if (j < columns - 1) {
+        horizontalEdges[i][j] = true;
+      }
+      if (i < rows - 1) {
+        verticalEdges[i][j] = true;
+      }
+    }
+  }
+}
+
+export async function mazeController(
+  maze: boolean,
+  rows: number,
+  columns: number,
+  visitedArray: VisitedArrayType,
+  horizontalEdges: EdgeMatrix,
+  verticalEdges: EdgeMatrix
+) {
+  // this clears all the arrays every time.
+  clearArrays(rows, columns, visitedArray, horizontalEdges, verticalEdges);
+
+  // later add the check if the maze already exists.
+  for (var i = 0; i < rows; i++) {
+    for (var j = 0; j < columns; j++) {
+      const tile = document.getElementById(generateTileID(i, j));
+      if (tile === null) return;
+      tile.classList.add("maze", "maze-visited");
+      if (i === rows - 1) tile.classList.add("bottomBorder");
+      if (j === columns - 1) tile.classList.add("rightBorder");
+    }
+  }
+
+  if (maze) {
+    await mazify(
+      visitedArray,
+      horizontalEdges,
+      verticalEdges,
+      rows,
+      columns,
+      0,
+      0
+    );
+  }
+
+  for (var i = 0; i < rows; i++) {
+    for (var j = 0; j < columns; j++) {
+      const tile = document.getElementById(generateTileID(i, j));
+      if (tile === null) return;
+      if (maze) {
+        visitedArray[i][j] = false;
+      } else {
+        tile.classList.remove(
+          "maze",
+          "maze-pointer",
+          "maze-visited",
+          "rightBorder",
+          "bottomBorder"
+        );
+      }
+    }
   }
 }

@@ -22,20 +22,29 @@ header {
   background-color: rgba(158, 158, 158, 0.5);
   cursor: pointer;
   border: 2px solid white;
+  /* transition: all 0.3s; */
 }
-
+/* invert is possible */
 .maze {
   border: none;
   box-sizing: border-box;
+  border-right: 4px solid #535353;
+  border-bottom: 4px solid #535353;
 }
 
 .tile:hover {
-  background-color: rgb(158, 158, 158);
+  background-color: #9e9e9e;
 }
 
 .rightBorder {
-  border-right: 4px solid #535353;
+  border-right: none;
 }
 .bottomBorder {
-  border-bottom: 4px solid #535353;
+  border-bottom: none;
+}
+.maze-visited {
+  background-color: #888888;
+}
+.maze-pointer {
+  background-color: #ff0000;
 }
