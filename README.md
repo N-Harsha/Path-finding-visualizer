@@ -29,7 +29,7 @@ This is a project uses simple typesciprt,html and css to visalize the path findi
 -   first clone the repo
 -   peform `npm install` to install all dev dependencies.
 -   then if you are working in src folder use `npm run start` to start the tsc watch.
--   if you are using VSCode then install the live-server extension to launch the `index.html` or you can install the `live-server` locally.
+-   if you are using VSCode then install the [live-server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension to launch the `index.html` or you can install the `live-server` locally.
 -   and you are good to go...!!
 
 ## Hosted Applications for you to playout with.
