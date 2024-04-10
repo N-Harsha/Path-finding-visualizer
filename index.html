@@ -1,26 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>path finder</title>
-    <link rel="stylesheet" href=" /style.css" />
-  </head>
-  <body>
-    <div id="message">choose a source</div>
-    <div id="tile-wrapper"></div>
-
-    <div class="center">
-      <select name="Algorithm" id="algo">
-        <option value="A*">A*</option>
-        <option value="bfs">BFS</option>
-        <option value="dfs">DFS</option>
-      </select>
-      <button id="reset">reset</button>
-      <input type="checkbox" name="maze" id="Maze" />
-      <h3>maze</h3>
-    </div>
-    <script type="module" defer src="/src/script.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="style.css" />
+        <title>Path finder</title>
+    </head>
+    <body>
+        <header>
+            <h1>Pathfinding Visualizer</h1>
+            <div class="input-wrapper">
+                <span>
+                    <label for="mazeFlag">Maze</label>
+                    <input
+                        type="checkbox"
+                        id="mazeFlag" />
+                </span>
+                <select id="speed">
+                    <option
+                        value="0"
+                        selected>
+                        Super Fast
+                    </option>
+                    <option value="20">Fast</option>
+                    <option value="40">Medium</option>
+                    <option value="60">Slow</option>
+                    <option value="80">Super Slow</option>
+                </select>
+                <select id="findAlgo">
+                    <option
+                        value="DFS"
+                        selected>
+                        DFS
+                    </option>
+                    <option value="BFS">BFS</option>
+                    <option value="AStar">A*</option>
+                </select>
+                <button
+                    id="recomputeMaze"
+                    type="button">
+                    change maze
+                </button>
+                <button
+                    id="reset"
+                    type="button">
+                    reset
+                </button>
+            </div>
+        </header>
+        <body>
+            <div id="tile-wrapper" />
+        </body>
+        <script>
+            let exports = { __esModule: true };
+        </script>
+        <script
+            type="module"
+            src="./dest/index.js"></script>
+    </body>
 </html>
