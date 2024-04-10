@@ -34,8 +34,8 @@ This is a project uses simple typesciprt,html and css to visalize the path findi
 
 ## Hosted Applications for you to playout with.
 
--   ### [Version1](path-finding-visualizer-ecru.vercel.app/)
--   ### [Version2](https://n-harsha.github.io/Path-finding-visualizer/)
+-   ### [Version1](https://n-harsha.github.io/Path-finding-visualizer/)
+-   ### [Version2](https://path-finding-visualizer-ecru.vercel.app/)
 
     code for the respective version is the in the respective branches in this repo.
 
